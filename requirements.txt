@@ -8,3 +8,5 @@ xgboost
 joblib
 bertopic
 sentence-transformers
+fastapi
+uvicorn
