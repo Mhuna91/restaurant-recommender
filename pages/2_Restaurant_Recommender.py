@@ -54,11 +54,25 @@ filtered = data[
 ]
 
 # TOPIC FILTER USING CATEGORIES
+topic_mapping = {
+    "Mexican Food Lovers": "Mexican",
+    "Pizza Enthusiasts": "Pizza",
+    "Craft Beer & Nightlife": "Bars|Beer",
+    "Sushi & Japanese Cuisine": "Sushi|Japanese",
+    "Burger & Fast Food Fans": "Burgers|Fast Food",
+    "Breakfast & Brunch Lovers": "Breakfast|Brunch",
+    "Coffee & Cafe Culture": "Coffee|Cafe",
+    "Thai Cuisine": "Thai",
+    "Chinese Cuisine": "Chinese",
+    "Italian Cuisine": "Italian"
+}
+keyword = topic_mapping.get(topic, topic)
+
 filtered = filtered[
     filtered["categories"]
     .astype(str)
     .str.contains(
-        topic,
+        keyword,
         case=False,
         na=False
     )
