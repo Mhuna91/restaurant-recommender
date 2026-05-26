@@ -8,16 +8,16 @@ data = pd.read_csv("sample_data.csv")
 
 persona = st.selectbox(
     "Select User Persona",
-    data["user_type_encoded"].unique()
+    data["user_type"].dropna().unique()
 )
 
 topic = st.selectbox(
     "Preferred Dining Topic",
-    data["topic_label"].unique()
+    data["topic_label"].dropna().unique()
 )
 
 filtered = data[
-    (data["user_type_encoded"] == persona) &
+    (data["user_type"] == persona) &
     (data["topic_label"] == topic)
 ]
 
