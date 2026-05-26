@@ -34,9 +34,13 @@ persona = st.selectbox(
 )
 
 # TOPIC SELECTION
+valid_topics = profiles[
+    profiles["favorite_topic"] != "Unknown"
+]["favorite_topic"].dropna().unique()
+
 topic = st.selectbox(
     "Preferred Dining Topic",
-    profiles["favorite_topic"].dropna().unique()
+    valid_topics
 )
 
 # FILTER USERS BY PERSONA
